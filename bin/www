@@ -43,7 +43,7 @@ io.on("connection", (socket) => {
 
   socket.on("addMessage", (data) => {
     console.log("addMessage", data);
-    socket.in(data.room).emit("newMessage", data);
+    socket.broadcast.to(data.room).emit("newMessage", data);
   });
 
   socket.on("editMessage", (data) => {
